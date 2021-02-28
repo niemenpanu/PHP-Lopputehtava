@@ -31,7 +31,8 @@
 
             $samoja = false;
                 if(count($omat) != count(array_unique($omat))) {
-                $samoja = true; }
+                $samoja = true;
+            }
 
 
             if (isset($_POST['btn']) && $samoja == false) {
@@ -63,7 +64,7 @@
                         echo "Voi räkä! Ei osumia...";
                 }
             } elseif (isset($_POST['btn']) && $samoja == true) {
-                echo "Eipäs yritetä kusettaa!" . "<br>" . "Kaikkien numeroiden pitää olla erilaisia.";
+                echo "Äläpäs yritä huijata!" . "<br>" . "Kaikkien numeroiden pitää olla erilaisia.";
             }
         ?>
     

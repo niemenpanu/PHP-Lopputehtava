@@ -8,7 +8,8 @@
         }
         $oikeat[] = $numero;
     }
+       
     sort($oikeat);
-
+    
 ?>
 
