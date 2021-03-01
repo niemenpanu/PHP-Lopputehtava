@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>Arvontakone</title> 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="tyyli.css">
     </head>
 <body>
-   <h1>Arvontakone</h1>
-   <h2>Valitse numerot 1 ja 30 väliltä</h2>
+    <div class="arvontakone">
+
+    <h1>Arvontakone</h1>
+    <h2>Valitse numerot 1 ja 30 väliltä</h2>
    
-   <form method="POST">
+    <form method="POST">
         <input type="number" name="nr1" placeholder="X" min="1" max="30">
         <input type="number" name="nr2" placeholder="X" min="1" max="30">
         <input type="number" name="nr3" placeholder="X" min="1" max="30">
@@ -25,7 +27,6 @@
     <br>
 
         <?php
-        
             $omat = array ($_POST["nr1"], $_POST["nr2"], $_POST["nr3"], $_POST["nr4"], $_POST["nr5"], $_POST["nr6"]);
             sort($omat);
 
@@ -34,8 +35,12 @@
                 $samoja = true;
             }
 
-
-            if (isset($_POST['btn']) && $samoja == false) {
+            $tyhja = false;
+                if (in_array("", $omat)) {
+                $tyhja = true;
+            }
+            
+            if (isset($_POST['btn']) && $samoja == false && $tyhja == false) {
                 require("numbergenerator.php");
                 
                 $osumat = 0;
@@ -51,22 +56,25 @@
                 if ($osumat == 6) {
                     echo "Jackpot!";
                     } elseif ($osumat == 5) {
-                      echo "Sait viisi numeroa oikein!? Onneksi olkoon!"; 
+                      echo "<p>" . "Sait viisi numeroa oikein!? Onneksi olkoon!" . "</p>"; 
                     } elseif ($osumat == 4) {
-                        echo "Sait neljä numeroa oikein! Olepa onnekas!";
+                        echo "<p>" . "Sait neljä numeroa oikein! Olepa onnekas!" . "</p>";
                     } elseif ($osumat == 3) {
-                        echo "Sait kolme numeroa oikein! Siistiä!";
+                        echo "<p>" . "Sait kolme numeroa oikein! Siistiä!" . "</p>";
                     } elseif ($osumat == 2 ) {
-                        echo "Sait kaksi numeroa oikein. Nice!";
+                        echo "<p>" . "Sait kaksi numeroa oikein. Nice!" . "</p>";
                     } elseif ($osumat == 1) {
-                        echo "Sait vain yhden oikein... Parempi onni ensi kerralla!";
+                        echo "<p>" . "Sait vain yhden oikein... Parempi onni ensi kerralla!" . "</p>";
                     } else {
-                        echo "Voi räkä! Ei osumia...";
-                }
-            } elseif (isset($_POST['btn']) && $samoja == true) {
-                echo "Äläpäs yritä huijata!" . "<br>" . "Kaikkien numeroiden pitää olla erilaisia.";
+                        echo "<p>" . "Voi räkä! Ei osumia..." . "</p>";
+                    }
+
+            } elseif (isset($_POST['btn']) && $samoja == true && $tyhja == false) {
+                echo "<p>" . "Äläpäs yritä huijata!" . "<br>" . "Kaikkien numeroiden pitää olla erilaisia." . "</p>";
+            } elseif (isset($_POST['btn']) && $samoja == true && $tyhja == true) {
+                echo "<p>" . "Jokaisessa pallossa on oltava yksi numero!" . "</p>";
             }
         ?>
-    
+    </div>  
 </body>
 </html>
