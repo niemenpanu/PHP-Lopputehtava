@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Arvontakone</title> 
-        <link rel="stylesheet" href="tyyli.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 <body>
     <div class="arvontakone">
@@ -12,12 +12,12 @@
     <h2>Valitse numerot 1 ja 30 väliltä</h2>
    
     <form method="POST">
-        <input type="number" name="nr1" placeholder="X" min="1" max="30">
-        <input type="number" name="nr2" placeholder="X" min="1" max="30">
-        <input type="number" name="nr3" placeholder="X" min="1" max="30">
-        <input type="number" name="nr4" placeholder="X" min="1" max="30">
-        <input type="number" name="nr5" placeholder="X" min="1" max="30">
-        <input type="number" name="nr6" placeholder="X" min="1" max="30">
+        <input type="number" name="nr1" placeholder="" min="1" max="30">
+        <input type="number" name="nr2" placeholder="" min="1" max="30">
+        <input type="number" name="nr3" placeholder="" min="1" max="30">
+        <input type="number" name="nr4" placeholder="" min="1" max="30">
+        <input type="number" name="nr5" placeholder="" min="1" max="30">
+        <input type="number" name="nr6" placeholder="" min="1" max="30">
         <br>
         <button type="submit" name="btn">Kokeile Onneasi!</button>
     </form>
@@ -49,14 +49,18 @@
                      $osumat++;
                     }
                 }
-                
+
                 echo "<p>" . "Valitsemasi numerot: " . implode(", ", $omat) . "</p>";
                 echo "<p>" . "Arvotut numerot: " . implode(", ", $oikeat) . "</p>";
-                echo "<br><br>";                
+                
+                echo "<br><br>";  
+
                 if ($osumat == 6) {
-                    echo "Jackpot!";
+                    echo '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ULeDlxa3gyc?start=29" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                        gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     } elseif ($osumat == 5) {
-                      echo "<p>" . "Sait viisi numeroa oikein!? Onneksi olkoon!" . "</p>"; 
+                      echo "<p>" . "Sait viisi numeroa oikein!? Onneksi olkoon!" . "</p>";
                     } elseif ($osumat == 4) {
                         echo "<p>" . "Sait neljä numeroa oikein! Olepa onnekas!" . "</p>";
                     } elseif ($osumat == 3) {
@@ -67,6 +71,7 @@
                         echo "<p>" . "Sait vain yhden oikein... Parempi onni ensi kerralla!" . "</p>";
                     } else {
                         echo "<p>" . "Voi räkä! Ei osumia..." . "</p>";
+                        
                     }
 
             } elseif (isset($_POST['btn']) && $samoja == true && $tyhja == false) {
