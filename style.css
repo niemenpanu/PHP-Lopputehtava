@@ -1,9 +1,9 @@
 body {
-  background: rgb(149, 232, 255);
+  background: rgb(149, 229, 255);
   background: radial-gradient(
     circle,
-    rgba(149, 232, 255, 1) 31%,
-    rgba(141, 196, 255, 1) 100%
+    rgba(149, 229, 255, 1) 38%,
+    rgba(141, 181, 255, 1) 100%
   );
   background-attachment: fixed;
   height: 100%;
