@@ -80,6 +80,5 @@
                 echo "<p>" . "Jokaisessa pallossa on oltava yksi numero!" . "</p>";
             }
         ?>
-    </div>  
 </body>
 </html>
