@@ -6,8 +6,6 @@
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <div class="arvontakone">
-
     <h1>Arvontakone</h1>
     <h2>Valitse numerot 1 ja 30 väliltä</h2>
    
